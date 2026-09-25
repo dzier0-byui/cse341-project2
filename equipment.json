@@ -1,0 +1,37 @@
+[
+  {
+    "name": "Adjustable Dumbbells",
+    "location": "Home Gym",
+    "condition": "Good"
+  },
+  {
+    "name": "Squat Rack",
+    "location": "Home Gym",
+    "condition": "Excellent"
+  },
+  {
+    "name": "Pull-Up Bar",
+    "location": "Garage",
+    "condition": "Good"
+  },
+  {
+    "name": "Kettlebell Set",
+    "location": "Home Gym",
+    "condition": "Fair"
+  },
+  {
+    "name": "Rowing Machine",
+    "location": "Garage",
+    "condition": "Excellent"
+  },
+  {
+    "name": "Resistance Bands",
+    "location": "Travel Bag",
+    "condition": "Good"
+  },
+  {
+    "name": "Foam Roller",
+    "location": "Home Gym",
+    "condition": "Fair"
+  }
+]

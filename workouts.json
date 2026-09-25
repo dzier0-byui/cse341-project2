@@ -1,0 +1,65 @@
+[
+  {
+    "exercise": "Bench Press",
+    "category": "Push",
+    "sets": 4,
+    "reps": 8,
+    "weight": 185,
+    "datePerformed": "2026-09-20",
+    "notes": "Felt strong, could go heavier next week"
+  },
+  {
+    "exercise": "Pull-Up",
+    "category": "Pull",
+    "sets": 3,
+    "reps": 10,
+    "weight": 0,
+    "datePerformed": "2026-09-19",
+    "notes": "Bodyweight only, strict form"
+  },
+  {
+    "exercise": "Back Squat",
+    "category": "Legs",
+    "sets": 5,
+    "reps": 5,
+    "weight": 225,
+    "datePerformed": "2026-09-18",
+    "notes": "New rep max at this weight"
+  },
+  {
+    "exercise": "Bicep Curl",
+    "category": "Arms",
+    "sets": 3,
+    "reps": 12,
+    "weight": 30,
+    "datePerformed": "2026-09-17",
+    "notes": "Slow eccentric, focused on form"
+  },
+  {
+    "exercise": "Wall Ball",
+    "category": "Conditioning",
+    "sets": 4,
+    "reps": 15,
+    "weight": 20,
+    "datePerformed": "2026-09-16",
+    "notes": "Hyrox-specific training"
+  },
+  {
+    "exercise": "Deadlift",
+    "category": "Pull",
+    "sets": 3,
+    "reps": 5,
+    "weight": 275,
+    "datePerformed": "2026-09-15",
+    "notes": "Lower back felt tight, watch form"
+  },
+  {
+    "exercise": "Shoulder Press",
+    "category": "Push",
+    "sets": 4,
+    "reps": 10,
+    "weight": 65,
+    "datePerformed": "2026-09-20",
+    "notes": "Reduced range of motion on right side"
+  }
+]
