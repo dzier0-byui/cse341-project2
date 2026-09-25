@@ -1,0 +1,29 @@
+### Get all equipment
+GET http://localhost:3000/equipment
+
+### Get a single equipment item by id
+GET http://localhost:3000/equipment/6ab6046c120c75920dbac0cc
+
+
+### Create a new equipment item
+POST http://localhost:3000/equipment
+Content-Type: application/json
+
+{
+  "name": "Jump Rope",
+  "location": "Storage Room",
+  "condition": "Good"
+}
+
+### Update an existing equipment item
+PUT http://localhost:3000/equipment/6ab68b5ec8bb5a0bd50c4469
+Content-Type: application/json
+
+{
+  "name": "Weighted Jump Rope",
+  "location": "Storage Room",
+  "condition": "Good"
+}
+
+### Delete an equipment item
+DELETE http://localhost:3000/equipment/6ab68b5ec8bb5a0bd50c4469

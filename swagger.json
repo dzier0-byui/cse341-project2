@@ -12,18 +12,11 @@
     "https"
   ],
   "paths": {
-    "/api-docs": {
-      "get": {
-        "description": "",
-        "responses": {
-          "default": {
-            "description": ""
-          }
-        }
-      }
-    },
     "/equipment/": {
       "get": {
+        "tags": [
+          "Equipment"
+        ],
         "description": "",
         "responses": {
           "default": {
@@ -32,6 +25,9 @@
         }
       },
       "post": {
+        "tags": [
+          "Equipment"
+        ],
         "description": "",
         "responses": {
           "default": {
@@ -42,6 +38,9 @@
     },
     "/equipment/{id}": {
       "get": {
+        "tags": [
+          "Equipment"
+        ],
         "description": "",
         "parameters": [
           {
@@ -58,6 +57,9 @@
         }
       },
       "put": {
+        "tags": [
+          "Equipment"
+        ],
         "description": "",
         "parameters": [
           {
@@ -74,6 +76,9 @@
         }
       },
       "delete": {
+        "tags": [
+          "Equipment"
+        ],
         "description": "",
         "parameters": [
           {
@@ -92,6 +97,9 @@
     },
     "/workouts/": {
       "get": {
+        "tags": [
+          "Workouts"
+        ],
         "description": "",
         "responses": {
           "default": {
@@ -100,6 +108,9 @@
         }
       },
       "post": {
+        "tags": [
+          "Workouts"
+        ],
         "description": "",
         "responses": {
           "default": {
@@ -110,6 +121,9 @@
     },
     "/workouts/{id}": {
       "get": {
+        "tags": [
+          "Workouts"
+        ],
         "description": "",
         "parameters": [
           {
@@ -126,6 +140,9 @@
         }
       },
       "put": {
+        "tags": [
+          "Workouts"
+        ],
         "description": "",
         "parameters": [
           {
@@ -142,6 +159,9 @@
         }
       },
       "delete": {
+        "tags": [
+          "Workouts"
+        ],
         "description": "",
         "parameters": [
           {
