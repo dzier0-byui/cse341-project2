@@ -1,12 +1,14 @@
 const express = require('express');
 const { body, validationResult } = require('express-validator'); 
 const routes = express.Router();
+const { isAuthenticated } = require('../middleware/authenticate');
 const workoutsController = require('../controllers/workouts');
 
 routes.get('/', workoutsController.getAllWorkouts);
 routes.get('/:id', workoutsController.getWorkoutById);
 routes.post(
     '/', 
+    isAuthenticated,
     body('exercise')
       .trim()
       .notEmpty()
@@ -38,6 +40,7 @@ routes.post(
 );
 routes.put(
     '/:id',
+    isAuthenticated,
     body('exercise')
       .trim()
       .notEmpty()
@@ -67,6 +70,6 @@ routes.put(
       
     workoutsController.updateWorkout
 );
-routes.delete('/:id', workoutsController.deleteWorkout);
+routes.delete('/:id', isAuthenticated, workoutsController.deleteWorkout);
 
 module.exports = routes;

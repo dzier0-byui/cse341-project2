@@ -2,8 +2,8 @@ const swaggerAutogen = require('swagger-autogen')();
 
 const doc = {
     info: {
-        title: 'Contacts API',
-        description: 'API for managing contacts'
+        title: 'Workout & Equipment API',
+        description: 'API for managing workouts and equipment'
     },
     host: 'localhost:3000',
     schemes: ['http', 'https']

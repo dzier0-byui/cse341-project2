@@ -1,12 +1,14 @@
 const express = require('express');
 const { body, validationResult } = require('express-validator'); 
 const routes = express.Router();
+const { isAuthenticated } = require('../middleware/authenticate');
 const equipmentController = require('../controllers/equipment');
 
 routes.get('/', equipmentController.getAllEquipment);
 routes.get('/:id', equipmentController.getEquipmentById);
 routes.post(
   '/',
+  isAuthenticated,
   body('name')
     .trim()
     .notEmpty()
@@ -26,6 +28,7 @@ routes.post(
 );
 routes.put(
     '/:id',
+    isAuthenticated,
     body('name')
     .trim()
     .notEmpty()
@@ -42,6 +45,6 @@ routes.put(
     .withMessage('Condition is required'),
 
     equipmentController.updateEquipment);
-routes.delete('/:id', equipmentController.deleteEquipment);
+routes.delete('/:id', isAuthenticated, equipmentController.deleteEquipment);
 
 module.exports = routes;
