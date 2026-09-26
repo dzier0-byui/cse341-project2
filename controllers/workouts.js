@@ -1,4 +1,5 @@
 const mongodb = require('../data/database');
+const { validationResult } = require('express-validator');
 const ObjectId = require('mongodb').ObjectId;
 
 const getAllWorkouts = async (req, res) => {
@@ -30,6 +31,11 @@ const getWorkoutById = async (req, res) => {
 
 const createWorkout = async (req, res) => {
   //swagger.tags-['Workouts'];
+  const errors = validationResult(req);
+  if (!errors.isEmpty()) {
+    return res.status(400).json({ errors: errors.array() });
+  }
+
   const newWorkout = {
     exercise: req.body.exercise,
     category: req.body.category,
@@ -49,6 +55,11 @@ const createWorkout = async (req, res) => {
 
 const updateWorkout = async (req, res) => {
   //swagger.tags-['Workouts'];
+  const errors = validationResult(req);
+  if (!errors.isEmpty()) {
+    return res.status(400).json({ errors: errors.array() });
+  }
+  
   const workoutId = req.params.id;
   const updatedWorkout = {
     exercise: req.body.exercise,

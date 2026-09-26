@@ -12,18 +12,18 @@ Content-Type: application/json
 {
   "name": "Jump Rope",
   "location": "Storage Room",
-  "condition": "Good"
+  "condition": "New"
 }
 
 ### Update an existing equipment item
-PUT http://localhost:3000/equipment/6ab68b5ec8bb5a0bd50c4469
+PUT http://localhost:3000/equipment/6ab736a512d3b1be27c92c2b
 Content-Type: application/json
 
 {
   "name": "Weighted Jump Rope",
   "location": "Storage Room",
-  "condition": "Good"
+  "condition": ""
 }
 
 ### Delete an equipment item
-DELETE http://localhost:3000/equipment/6ab68b5ec8bb5a0bd50c4469
+DELETE http://localhost:3000/equipment/6ab736a512d3b1be27c92c2b

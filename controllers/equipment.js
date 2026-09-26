@@ -1,4 +1,5 @@
 const mongodb = require('../data/database');
+const { validationResult } = require('express-validator');
 const ObjectId = require('mongodb').ObjectId;
 
 const getAllEquipment = async (req, res) => {
@@ -29,22 +30,37 @@ const getEquipmentById = async (req, res) => {
 };
 
 const createEquipment = async (req, res) => {
-  //swagger.tags-['Equipment'];
+  //swagger.tags=['Equipment']
+  const errors = validationResult(req);
+  if (!errors.isEmpty()) {
+    return res.status(400).json({ errors: errors.array() });
+  }
+
   const newEquipment = {
     name: req.body.name,
     location: req.body.location,
     condition: req.body.condition
+  };
+
+  try {
+    const response = await mongodb.getDatabase().db().collection('equipment').insertOne(newEquipment);
+    if (response.acknowledged) {
+      res.status(201).json(response);
+    } else {
+      res.status(500).json({ error: 'Failed to create equipment' });
+    }
+  } catch (err) {
+    res.status(500).json({ error: err.message });
   }
-  const response = await mongodb.getDatabase().db().collection('equipment').insertOne(newEquipment);
-  if (response.acknowledged) {
-    res.status(201).json(response);
-  } else {
-    res.status(500).json({ error: 'Failed to create equipment' });
-  } 
 };
 
 const updateEquipment = async (req, res) => {
   //swagger.tags-['Equipment'];
+  const errors = validationResult(req);
+  if (!errors.isEmpty()) {
+    return res.status(400).json({ errors: errors.array() });
+  }
+
   const equipmentId = req.params.id;
   const updatedEquipment = {
     name: req.body.name,

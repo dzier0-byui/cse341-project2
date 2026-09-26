@@ -20,13 +20,13 @@ Content-Type: application/json
 }
 
 ### Update an existing workout
-PUT http://localhost:3000/workouts/6ab68cb0c8bb5a0bd50c446a
+PUT http://localhost:3000/workouts/6ab7373812d3b1be27c92c2c
 Content-Type: application/json
 
 {
   "exercise": "Burpees", 
   "category": "Conditioning",
-  "sets": 4,
+  "sets": 1,
   "reps": 10,
   "weight": 0,
   "datePerformed": "2026-09-18",
@@ -34,4 +34,4 @@ Content-Type: application/json
 }
 
 ### Delete a workout
-DELETE http://localhost:3000/workouts/6ab68cb0c8bb5a0bd50c446a
+DELETE http://localhost:3000/workouts/6ab7373812d3b1be27c92c2c
