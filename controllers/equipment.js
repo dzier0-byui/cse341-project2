@@ -67,21 +67,29 @@ const updateEquipment = async (req, res) => {
     location: req.body.location,
     condition: req.body.condition
   }
-  const response = await mongodb.getDatabase().db().collection('equipment').replaceOne({ _id: new ObjectId(equipmentId)}, updatedEquipment);
-  if (response.modifiedCount > 0) {
-    res.status(204).json(response);
-  } else {
+  try {
+    const response = await mongodb.getDatabase().db().collection('equipment').replaceOne({ _id: new ObjectId(equipmentId)}, updatedEquipment);
+    if (response.modifiedCount > 0) {
+      res.status(204).json(response);
+    } else {
+      res.status(500).json({ error: 'Failed to update equipment' });
+    }
+  } catch (err) {
     res.status(500).json({ error: 'Failed to update equipment' });
   }
 };
 
 const deleteEquipment = async (req, res) => {
   //swagger.tags-['Equipment'];
-  const equipmentId = req.params.id;
-  const response = await mongodb.getDatabase().db().collection('equipment').deleteOne({ _id: new ObjectId(equipmentId)});
-  if (response.deletedCount > 0) {
-    res.status(200).json(response);
-  } else {
+  try {
+    const equipmentId = req.params.id;
+    const response = await mongodb.getDatabase().db().collection('equipment').deleteOne({ _id: new ObjectId(equipmentId)});
+    if (response.deletedCount > 0) {
+      res.status(200).json(response);
+    } else {
+      res.status(500).json({ error: 'Failed to delete equipment' });
+    }
+  } catch (err) {
     res.status(500).json({ error: 'Failed to delete equipment' });
   }
 };

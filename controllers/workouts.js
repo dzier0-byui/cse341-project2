@@ -45,12 +45,17 @@ const createWorkout = async (req, res) => {
     datePerformed: req.body.datePerformed,
     notes: req.body.notes
   }
-  const response = await mongodb.getDatabase().db().collection('workouts').insertOne(newWorkout);
-  if (response.acknowledged) {
-    res.status(201).json(response);
-  } else {
+
+  try {
+    const response = await mongodb.getDatabase().db().collection('workouts').insertOne(newWorkout);
+    if (response.acknowledged) {
+      res.status(201).json(response);
+    } else {
+      res.status(500).json({ error: 'Failed to create workout' });
+    } 
+  } catch (err) {
     res.status(500).json({ error: 'Failed to create workout' });
-  } 
+  }
 };
 
 const updateWorkout = async (req, res) => {
@@ -70,21 +75,30 @@ const updateWorkout = async (req, res) => {
     datePerformed: req.body.datePerformed,
     notes: req.body.notes
   }
-  const response = await mongodb.getDatabase().db().collection('workouts').replaceOne({ _id: new ObjectId(workoutId)}, updatedWorkout);
-  if (response.modifiedCount > 0) {
-    res.status(204).json(response);
-  } else {
+
+  try {
+    const response = await mongodb.getDatabase().db().collection('workouts').replaceOne({ _id: new ObjectId(workoutId)}, updatedWorkout);
+    if (response.modifiedCount > 0) {
+      res.status(204).json(response);
+    } else {
+      res.status(500).json({ error: 'Failed to update workout' });
+    }
+  } catch (err) {
     res.status(500).json({ error: 'Failed to update workout' });
   }
 };
 
 const deleteWorkout = async (req, res) => {
   //swagger.tags-['Workouts'];
-  const workoutId = req.params.id;
-  const response = await mongodb.getDatabase().db().collection('workouts').deleteOne({ _id: new ObjectId(workoutId)});
-  if (response.deletedCount > 0) {
-    res.status(200).json(response);
-  } else {
+  try {
+    const workoutId = req.params.id;
+    const response = await mongodb.getDatabase().db().collection('workouts').deleteOne({ _id: new ObjectId(workoutId)});
+    if (response.deletedCount > 0) {
+      res.status(200).json(response);
+    } else {
+      res.status(500).json({ error: 'Failed to delete workout' });
+    }
+  } catch (err) {
     res.status(500).json({ error: 'Failed to delete workout' });
   }
 };
